@@ -50,12 +50,12 @@
                 <div class="input-group-prepend">
                     <span class="input-group-text">Message</span>
                 </div>
-                <input type="text" class="form-control" name="input" />
+                <input type="text" class="form-control" name="message" #message="ngModel" [(ngModel)]="this.input" />
             </div>
             <button mat-button mat-raised-button class="mt-4" color="primary" type="submit"> Send </button>
 
             <div class="content">
-                <div *ngFor="let msg of this.messageService.msg">
+                <div *ngFor="let msg of this.service.msg">
                     {{msg}}
                 </div>
             </div>

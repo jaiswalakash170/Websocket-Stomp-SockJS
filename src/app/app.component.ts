@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { MessageService } from './message.service'
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +8,16 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'websocket';
+
+  public title = 'websocket';
+  public input : String = '';
+  constructor(public service : MessageService) { }
+
+  sendMessage(data){
+    console.log(this.input);
+    if (this.input) {
+      this.service.sendMessage(this.input);
+      this.input = '';
+    }
+  }
 }
